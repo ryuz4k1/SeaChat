@@ -3,19 +3,18 @@
 const express                   = require("express");
 const bodyParser                = require("body-parser");
 const ejs                       = require("ejs");
-const dotevn                    = require("dotenv");
-
+const passport                  = require('passport');
 // db Connection
 const Connection                = require('../src/helpers/connection');
 
 //Controllers
 const IndexController           = require("../src/controllers/index-controller");
+const AuthController            = require("../src/controllers/auth-controller");
 
 // Middleware
 
 //Config
 const config                    = require('../config.json');
-
 
 
 class App {
@@ -32,9 +31,10 @@ class App {
     //db connection
     this.Connection;
 
-    // ... Enviroment variables
-    dotevn.config();
-
+    // passport.js
+    this.app.use(passport.initialize());
+    this.app.use(passport.session());
+    
     // ... Body parser
     this.app.use(bodyParser.urlencoded({ extended: true }));
     this.app.use(bodyParser.json()); //json tipinde gelicek post datalarını karşılar
@@ -56,6 +56,10 @@ class App {
     let router = express.Router();
     this.app.use("/", router);
     new IndexController(router);
+    
+    router = express.Router();
+    this.app.use("/auth", router);
+    new AuthController(router);
   };
 
   getApp() {
