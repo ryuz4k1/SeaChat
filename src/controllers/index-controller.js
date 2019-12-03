@@ -8,7 +8,7 @@ class IndexController{
 
     async index(req, res){
         try {
-            return res.render("../views/index.ejs");
+            return res.render("../views/authorization/google.ejs");
         } 
         catch (error) {
             console.log(error);

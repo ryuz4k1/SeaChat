@@ -16,8 +16,7 @@
     },
     "DB_URL": "mongodb://localhost/seachat",
     "GOOGLE_LOGIN_CLIENT_ID": "66015616139-m8ufj94fbffjllttjspqmm8mku56c7ci.apps.googleusercontent.com",
-
     "GOOGLE_LOGIN_SECRET_ID" : "9g4Z77ITzdrmnrEORjdoYkP4",
-
-    "GOOGLE_LOGIN_CALLBACK_URL" : "/auth/google"
+    "GOOGLE_LOGIN_CALLBACK_URL" : "/auth/google/callback",
+    "SESSION_SECRET_KEY": "HDNDJ8H448FBVJ"
 }
