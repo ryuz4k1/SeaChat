@@ -1,0 +1,13 @@
+{
+  "name": "SeaChat",
+  "description": "Advanced chat system with sea concept..",
+  "main": "",
+  "authors": [
+    "ryuz4k1 <ozerr.murat@hotmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ryuz4k1/SeaChat",
+  "dependencies": {
+    "angular": "^1.7.9"
+  }
+}

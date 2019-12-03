@@ -3,6 +3,7 @@
 const express                   = require("express");
 const bodyParser                = require("body-parser");
 const ejs                       = require("ejs");
+const dotevn                    = require("dotenv");
 
 // db Connection
 const Connection                = require('../src/helpers/connection');
@@ -30,6 +31,9 @@ class App {
   config() {
     //db connection
     this.Connection;
+
+    // ... Enviroment variables
+    dotevn.config();
 
     // ... Body parser
     this.app.use(bodyParser.urlencoded({ extended: true }));
