@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en" ng-app="seachat", ng-cloak> 
 <head>
     <meta charset="UTF-8">
     <title>SeaChat</title>
     <link rel="stylesheet" type="text/css" href="../../public/style/chat.css">
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper" ng-controller="chatController">
         <div class="container">
         <div class="left">
             <div class="top">
@@ -53,3 +53,13 @@
     </div>
 </body>
 </html>
+
+<!--AngularJs from Bower-->
+<script src="../../bower_components/angular/angular.min.js"></script>
+
+<script src="../../../public/js/main.js"></script>
+
+<script src="../../../public/js/controllers/chat-controller.js"></script>
+
+<!--Socketio-->
+<script src="http://localhost:5000/socket.io/socket.io.js"></script>
