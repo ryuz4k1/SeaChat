@@ -20,7 +20,7 @@ body {
     text-rendering: optimizeLegibility;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
-    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/image.jpg");
+    background-image: url("https://wallpapershome.com/images/pages/pic_h/402.jpg");
     background-size: cover;
     background-repeat: none;
 }
@@ -102,6 +102,16 @@ ul,li{
     background-position: top 12px left 14px;
     border-radius: 50%;
 }
+
+.tabArea{
+    margin-left: -1px;
+    border-right: 1px solid var(--light);
+    border-left: 1px solid var(--light);
+    width: calc(100% + 2px);
+    height: calc(76% + 1px);
+    overflow:scroll;
+}
+
 .container .left .people {
     margin-left: -1px;
     border-right: 1px solid var(--light);
@@ -392,13 +402,20 @@ ul,li{
     right: 0;
 }
 
-.tab{
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
 
+.tab{
 }
 
 .tab li{
     width: 50%;
     float: left;
+    cursor: pointer;
 }
 .tab li a{
     height:40px;

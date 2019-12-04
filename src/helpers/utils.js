@@ -28,7 +28,7 @@ class Utils {
     };
 
     connectRedisStore(){
-        let redisStore =  new RedisStore({
+        const redisStore =  new RedisStore({
             host: config.REDIS_URI,
             port: config.REDIS_PORT,
             pass: config.REDIS_PASS,
