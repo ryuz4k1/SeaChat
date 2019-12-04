@@ -15,6 +15,8 @@ const Connection                = require('../src/helpers/connection');
 const IndexController           = require("../src/controllers/index-controller");
 const AuthorizationController   = require("../src/controllers/authorization-controller");
 const ChatController            = require("../src/controllers/chat-controller");
+const MessagesController        = require("../src/controllers/messages-controller");
+const UserController            = require("../src/controllers/user-controller");
 
 // Middleware
 const AuthenticationMiddleware  = require("../src/middleware/authentication-middleware");
@@ -88,6 +90,14 @@ class App {
     router = express.Router();
     this.app.use("/chat", router);
     new ChatController(router);
+    
+    router = express.Router();
+    this.app.use("/messages", router);
+    new MessagesController(router);
+    
+    router = express.Router();
+    this.app.use("/user", router);
+    new UserController(router);
   };
 
   getApp() {

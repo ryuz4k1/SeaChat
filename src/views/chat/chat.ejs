@@ -47,18 +47,17 @@
             </div>
         </div>
         <div class="right" ng-show="chatClicked === true" style="background: url('https://i.imgyukle.com/2019/12/04/RBDXLs.png');">
-            <div class="top"><span><span class="name">Dog Woofson</span></span></div>
+            <div class="top"><span><span class="name">{{chatName}}</span></span></div>
             <div class="chat active-chat">
-            <div class="bubble you"><span>Hakan Aydın</span>Hello, can you hear me?</div>
-            <div class="bubble you"><span>Hakan Aydın</span>I'm in California dreaming</div>
-            <div class="bubble me">... about who we used to be.</div>
-            <div class="bubble me">Are you serious?</div>
-            <div class="bubble you"><span>Hakan Aydın</span>When we were younger and free...</div>
-            <div class="bubble you"><span>Hakan Aydın</span>I've forgotten how it felt before</div>
+            <div class="bubble you" ng-class="{false: 'you', true: 'me'}[data.userId == user._id]" ng-repeat="data in messages[roomId]">
+                <span>{{data.username}}</span>{{data.message}}
             </div>
-            <div class="write">
-            <input type="text"/><a href="javascript:;" class="write-link send"></a>
             </div>
+            <form ng-submit="newMessage()">
+                <div class="write">
+                    <input type="text" ng-model="message"/><a href="javascript:;" class="write-link send" ng-click="newMessage()"></a>
+                </div>
+            </form>
         </div>
         </div>
     </div>
@@ -69,6 +68,10 @@
 <script src="../../bower_components/angular/angular.min.js"></script>
 
 <script src="../../../public/js/main.js"></script>
+
+<script src="../../../public/js/services/chatFactory.js"></script>
+
+<script src="../../../public/js/services/userFactory.js"></script>
 
 <script src="../../../public/js/controllers/chat-controller.js"></script>
 

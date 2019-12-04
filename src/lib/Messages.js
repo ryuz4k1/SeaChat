@@ -1,6 +1,6 @@
 const shortid = require('shortid');
 const _ = require('lodash');
-const redisClient = require('../redisClient');
+const redisClient = require('../api/redisClient');
 
 function Messages() {
 	this.client = redisClient.getClient()
