@@ -18,5 +18,8 @@
     "GOOGLE_LOGIN_CLIENT_ID": "66015616139-m8ufj94fbffjllttjspqmm8mku56c7ci.apps.googleusercontent.com",
     "GOOGLE_LOGIN_SECRET_ID" : "9g4Z77ITzdrmnrEORjdoYkP4",
     "GOOGLE_LOGIN_CALLBACK_URL" : "/auth/google/callback",
-    "SESSION_SECRET_KEY": "HDNDJ8H448FBVJ"
+    "SESSION_SECRET_KEY": "HDNDJ8H448FBVJ",
+    "REDIS_URI": "127.0.0.1",
+    "REDIS_PORT": "6379",
+    "REDIS_PASS":""
 }

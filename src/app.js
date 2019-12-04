@@ -6,6 +6,7 @@ const ejs                       = require("ejs");
 const passport                  = require('passport');
 const session                   = require('express-session');
 const cookieParser              = require('cookie-parser');
+const Utils                     = require('../src/helpers/utils')
 
 // db Connection
 const Connection                = require('../src/helpers/connection');
@@ -33,6 +34,8 @@ class App {
   }
 
   config() {
+    this.utils = new Utils();
+
     //db connection
     this.Connection;
 
@@ -52,6 +55,7 @@ class App {
     
     // ... Express session
     this.app.use(session({
+      store: this.utils.connectRedisStore(),
       secret: config.SESSION_SECRET_KEY,
       resave: false,
       saveUninitialized: true,
