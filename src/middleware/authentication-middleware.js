@@ -3,7 +3,7 @@
 class AuthenticationMiddleware {
     // ... Session
     session(req, res, next) {
-        if (req.isAuthenticated()){
+        if (req.session.user){
             return next();
         }
         else {

@@ -1,4 +1,5 @@
-const config = require('../../config.json');
+const config            = require('../../config.json');
+
 
 class IndexController{
     constructor(router){
@@ -6,28 +7,16 @@ class IndexController{
         this.routes();
     }
 
-    async index(req, res){
+    async index(req,res) {
         try {
-            return res.render("../views/authorization/google.ejs");
-        } 
-        catch (error) {
-            console.log(error);
-        }
-    }
-
-    async enviroment(req, res, next){
-        try {
-            const envData = await config[process.env.NODE_ENV || 'development'];
-            res.json(envData);
-        } 
-        catch (error) {
+            return res.json({index : "index page"})
+        } catch (error) {
             console.log(error);
         }
     }
 
     routes(){
         this.router.get("/", this.index.bind(this));
-        this.router.get("/enviroment", this.enviroment.bind(this));
     };
 
 };

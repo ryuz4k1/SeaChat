@@ -1,10 +1,11 @@
 "use strict";
 
 const express                   = require("express");
-const bodyParser                = require("body-parser");
+const bodyParser                = require('body-parser');
 const ejs                       = require("ejs");
 const passport                  = require('passport');
-const session                   = require("express-session");
+const session                   = require('express-session');
+const cookieParser              = require('cookie-parser');
 
 // db Connection
 const Connection                = require('../src/helpers/connection');
@@ -39,6 +40,16 @@ class App {
     this.app.use(passport.initialize());
     this.app.use(passport.session());
     
+    // ... Body parser
+    this.app.use(bodyParser.urlencoded({ extended: true }));
+    this.app.use(bodyParser.json()); //json tipinde gelicek post datalarını karşılar
+    this.app.use(cookieParser());
+
+    // view engine setup
+    this.app.engine(".ejs", ejs.__express);
+    this.app.set("views", __dirname + "/views");
+    this.app.set('view engine', 'ejs');
+    
     // ... Express session
     this.app.use(session({
       secret: config.SESSION_SECRET_KEY,
@@ -46,14 +57,6 @@ class App {
       saveUninitialized: true,
       cookie: { maxAge: 14 * 24 * 360000 }
     }));
-    
-    // ... Body parser
-    this.app.use(bodyParser.urlencoded({ extended: true }));
-    this.app.use(bodyParser.json()); //json tipinde gelicek post datalarını karşılar
-
-    // view engine setup
-    this.app.engine(".ejs", ejs.__express);
-    this.app.set("views", __dirname + "/view");    
 
     //config
     this.app.set('apiKey', config.apiKey.key);
@@ -64,22 +67,22 @@ class App {
     this.app.use("/public", express.static("public"));
     this.app.use("/bower_components", express.static("bower_components"));
     
-    // ... Define routes 
+    // ... Define routes
     let router = express.Router();
     this.app.use("/auth", router);
     new AuthorizationController(router);
-    
-    // ... Authentication middleware
-    const authenticationMiddleware = new AuthenticationMiddleware();
-    this.app.use(authenticationMiddleware.session);
 
     // ... Index Controller
     router = express.Router();
     this.app.use("/", router);
     new IndexController(router);
     
+    // ... Authentication middleware
+    const authenticationMiddleware = new AuthenticationMiddleware();
+    this.app.use(authenticationMiddleware.session);
+    
     router = express.Router();
-    this.app.use("/chat",authenticationMiddleware.session,router);
+    this.app.use("/chat", router);
     new ChatController(router);
   };
 
