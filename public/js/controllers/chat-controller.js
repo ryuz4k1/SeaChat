@@ -34,7 +34,7 @@ app.controller('chatController', ['$scope',"userFactory" ,"chatFactory", ($scope
     const socket = io.connect("http://localhost:5000");
 
     socket.on('onlineList', users => {
-        console.log(users);
+        console.log("User list : " , users);
 		$scope.onlineList = users;
 		$scope.$apply();
     });

@@ -14,7 +14,6 @@ passport.use(
 	},
 	((accessToken, refreshToken, profile, done) => {
         const data = profile;
-        console.log(profile);
 
         User.findOrCreate({
             'googleId': data.id
