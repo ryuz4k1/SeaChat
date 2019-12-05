@@ -9,7 +9,7 @@ class IndexController{
 
     async index(req,res) {
         try {
-            return res.json({index : "index page"})
+            return res.render('./home/home.ejs')
         } catch (error) {
             console.log(error);
         }

@@ -13,16 +13,16 @@ passport.use(
 		callbackURL: config.GOOGLE_LOGIN_CALLBACK_URL
 	},
 	((accessToken, refreshToken, profile, done) => {
-        const data = profile._json;
+        const data = profile;
+        console.log(profile);
 
         User.findOrCreate({
-            "googleId": data.sub
+            'googleId': data.id
         },
         {
-            name: data.name,
+            name: data.given_name,
             surname: data.family_name,
-            profilePhotoUrl: data.picture,
-            locale: data.locale
+            profilePhotoUrl: data.picture
         },(err, user) => {
             return done(err, user);
         });

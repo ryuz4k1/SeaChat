@@ -1,22 +1,19 @@
 const mongoose 	 = require("mongoose");
+const Schema = mongoose.Schema;
 const findOrCreate = require("mongoose-find-or-create");
 
-const UserSchema = mongoose.Schema({
+const UserSchema = new Schema({
     googleId: {
         type: String,
         unique: true
     },
 	name: {
 		type: String,
-		required: true,
 	},
 	surname: {
 		type: String,
     },
     profilePhotoUrl: {
-        type: String
-    },
-    locale:{
         type: String
     }
 });
