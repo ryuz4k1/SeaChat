@@ -1,5 +1,3 @@
-const config            = require('../../config.json');
-
 const Messages = require('../lib/Messages');
 
 class MessagesController{

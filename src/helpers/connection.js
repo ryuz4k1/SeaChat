@@ -1,13 +1,12 @@
 "use strict";
 
 const mongoose = require("mongoose");
-const config = require('../../config.json')
 
 class Connection {
 
     // ... Mongodb 
     mongoDB() {
-        const mongodb =  mongoose.connect(config.DB_URL,{useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true });
+        const mongodb =  mongoose.connect(process.env.DB_URL,{useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true });
         mongoose.connection.on('open', () => {
             console.log('Connected');
         });

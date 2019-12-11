@@ -4,7 +4,6 @@ const redis          = require('redis')
 const packageJson    = require("../../package.json");
 const Types          = require("../helpers/types");
 const session        = require('express-session')
-const config         = require('../../config.json')
 let RedisStore       = require('connect-redis')(session);
 let redisClient      = redis.createClient()
 
@@ -29,9 +28,9 @@ class Utils {
 
     connectRedisStore(){
         const redisStore =  new RedisStore({
-            host: config.REDIS_URI,
-            port: config.REDIS_PORT,
-            pass: config.REDIS_PASS,
+            host: process.env.REDIS_URI,
+            port: process.env.REDIS_PORT,
+            pass: process.env.REDIS_PASS,
             client: redisClient
         });
 

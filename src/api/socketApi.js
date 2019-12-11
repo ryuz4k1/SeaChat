@@ -1,4 +1,3 @@
-const config                        = require('../../config.json');
 const redisAdapter                  = require('socket.io-redis');
 const SocketAuthorizationMiddleware = require('../middleware/socket-authorization-middleware');
 
@@ -19,8 +18,8 @@ io.use(socketAuthorizationMiddleware.socketAuthorization());
 
 // ... Redis Adapter
 io.adapter(redisAdapter({
-    host: config.REDIS_URI, 
-    port: config.REDIS_PORT 
+    host: process.env.REDIS_URI, 
+    port: process.env.REDIS_PORT 
 }));
 
 

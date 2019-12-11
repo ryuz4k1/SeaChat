@@ -1,7 +1,6 @@
 const passport = require("passport");
 const GoogleStrategy = require('passport-google-oauth2');
 const config = require("../../config.json")
-
 // ... Model
 const User = require('../models/user-model');
 

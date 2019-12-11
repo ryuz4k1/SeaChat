@@ -1,5 +1,3 @@
-const config = require('../../config.json');
-
 class ChatController{
     constructor(router){
         this.router = router;

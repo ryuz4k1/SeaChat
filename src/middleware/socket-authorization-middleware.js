@@ -3,7 +3,6 @@
 const cookieParser          = require('cookie-parser');
 const passportSocketIo      = require("passport.socketio");
 const Utils                 = require('../helpers/utils');
-const config                = require('../../config.json');
 
 class SocketAuthorizationMiddleware {
 
@@ -12,7 +11,7 @@ class SocketAuthorizationMiddleware {
         return passportSocketIo.authorize({
             cookieParser,                                   // the same middleware you registrer in express
             key:            'connect.sid',                    // the name of the cookie where express/connect stores its session_id
-            secret:         config.SESSION_SECRET_KEY,        // the session_secret to parse the cookie
+            secret:         process.env.SESSION_SECRET_KEY,        // the session_secret to parse the cookie
             store:          this.utils.connectRedisStore(),        // we NEED to use a sessionstore. no memorystore please
             success:        this.onAuthorizeSuccess,          // *optional* callback on success - read more below
             fail:           this.onAuthorizeFail,             // *optional* callback on fail/error - read more below

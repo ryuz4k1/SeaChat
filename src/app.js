@@ -6,7 +6,8 @@ const ejs                       = require("ejs");
 const passport                  = require('passport');
 const session                   = require('express-session');
 const cookieParser              = require('cookie-parser');
-const Utils                     = require('../src/helpers/utils')
+const Utils                     = require('../src/helpers/utils');
+const dotenv                    = require('dotenv').config();
 
 // db Connection
 const Connection                = require('../src/helpers/connection');
@@ -20,9 +21,6 @@ const UserController            = require("../src/controllers/user-controller");
 
 // Middleware
 const AuthenticationMiddleware  = require("../src/middleware/authentication-middleware");
-
-//Config
-const config                    = require('../config.json');
 
 
 class App {
@@ -58,14 +56,14 @@ class App {
     // ... Express session
     this.app.use(session({
       store: this.utils.connectRedisStore(),
-      secret: config.SESSION_SECRET_KEY,
+      secret: process.env.SESSION_SECRET_KEY,
       resave: false,
       saveUninitialized: true,
       cookie: { maxAge: 14 * 24 * 360000 }
     }));
 
     //config
-    this.app.set('apiKey', config.apiKey.key);
+    this.app.set('apiKey', process.env.REDIS_URI);
 
   }
 

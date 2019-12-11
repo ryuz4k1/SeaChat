@@ -1,7 +1,3 @@
-const config            = require('../../config.json');
-
-const User              = require('../lib/Messages');
-
 class UserController{
     constructor(router){
         this.router = router;

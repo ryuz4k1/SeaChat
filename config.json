@@ -2,24 +2,13 @@
     "app": {
         "port": 3000
     },
-    "mongoDB": {
-        "endPoint": "mongodb://ryuz4k1:element17@ds059957.mlab.com:59957/movie-api-core"
-    },
-    "apiKey" : {
-        "key": "2fb05270-63a8-4df1-bb2d-2567903e8b36"
-    },
     "development": {
         "socketUrl": "http://localhost:5000"
     },
     "production": {
         "socketUrl": "https://sea-chat.herokuapp.com/"
     },
-    "DB_URL": "mongodb://localhost/seachat",
     "GOOGLE_LOGIN_CLIENT_ID": "66015616139-m8ufj94fbffjllttjspqmm8mku56c7ci.apps.googleusercontent.com",
     "GOOGLE_LOGIN_SECRET_ID" : "9g4Z77ITzdrmnrEORjdoYkP4",
-    "GOOGLE_LOGIN_CALLBACK_URL" : "/auth/google/callback",
-    "SESSION_SECRET_KEY": "HDNDJ8H448FBVJ",
-    "REDIS_URI": "127.0.0.1",
-    "REDIS_PORT": "6379",
-    "REDIS_PASS":""
+    "GOOGLE_LOGIN_CALLBACK_URL" : "/auth/google/callback"
 }
