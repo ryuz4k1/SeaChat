@@ -28,7 +28,7 @@ io.on('connection', (socket) => {
     //console.log("User connected", socket.request.user);
 
     Rooms.list(rooms => {
-		io.emit('roomList', rooms);
+		  io.emit('roomList', rooms);
     });
 
     Users.list(users => {

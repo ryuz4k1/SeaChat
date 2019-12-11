@@ -1,7 +1,7 @@
-app.factory('userFactory', ['$http', 'env', ($http, env) => {
-	const getUser = () => {
+app.factory('userFactory', ['$http', ($http) => {
+	const getUser = (url) => {
 		return $http({
-			url: env.SERVICE_URL+ '/user',
+			url: url + '/user',
 			method: 'GET'
 		}).then(response => {
 			return response.data;

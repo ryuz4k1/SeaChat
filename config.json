@@ -12,7 +12,7 @@
         "socketUrl": "http://localhost:5000"
     },
     "production": {
-        "socketUrl": "https://seachat.herokuapp.com/"
+        "socketUrl": "https://sea-chat.herokuapp.com/"
     },
     "DB_URL": "mongodb://localhost/seachat",
     "GOOGLE_LOGIN_CLIENT_ID": "66015616139-m8ufj94fbffjllttjspqmm8mku56c7ci.apps.googleusercontent.com",
