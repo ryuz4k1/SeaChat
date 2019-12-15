@@ -109,7 +109,6 @@ ul,li{
     border-left: 1px solid var(--light);
     width: calc(100% + 2px);
     height: calc(76% + 1px);
-    overflow:scroll;
 }
 
 .container .left .people {
@@ -118,7 +117,6 @@ ul,li{
     border-left: 1px solid var(--light);
     width: calc(100% + 2px);
     height: calc(76% + 1px);
-    overflow:scroll;
 }
 .container .left .people .person {
     position: relative;

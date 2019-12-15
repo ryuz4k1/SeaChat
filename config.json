@@ -6,7 +6,7 @@
         "socketUrl": "http://localhost:5000"
     },
     "production": {
-        "socketUrl": "https://sea-chat.herokuapp.com/"
+        "socketUrl": "http://ec2-18-221-89-9.us-east-2.compute.amazonaws.com:5000"
     },
     "GOOGLE_LOGIN_CLIENT_ID": "66015616139-m8ufj94fbffjllttjspqmm8mku56c7ci.apps.googleusercontent.com",
     "GOOGLE_LOGIN_SECRET_ID" : "9g4Z77ITzdrmnrEORjdoYkP4",

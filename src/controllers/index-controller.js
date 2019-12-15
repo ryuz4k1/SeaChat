@@ -17,7 +17,7 @@ class IndexController{
 
     async enviroment(req, res, next){
         try {
-            const envData = await config[process.env.NODE_ENV || 'development'];
+            const envData = await config[process.env.NODE_ENV || 'production'];
             res.json(envData);
         } 
         catch (error) {
